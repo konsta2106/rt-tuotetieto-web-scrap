@@ -15,13 +15,15 @@ async function scrapeData() {
         // Select all the a items in item-long-product-name class
         const listItems = $(".item-long-product-name a");
         // Stores data for all ids
-        const ids = [];
+        const ids = {
+            codeProductCatalog: []
+        };
         // Loop through "a" items and extract href links
         // Slice href link to get only the id part
         // Push ids to id variable
         listItems.each((idx, el) => {
             const id = el.attribs.href.split('-').pop().slice(0, -5)
-            ids.push(id);
+            ids.codeProductCatalog.push(id);
         });
         // Logs ids array to the console
         console.log(ids);
